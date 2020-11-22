@@ -240,46 +240,8 @@ class WGraph_DSTest {
 
         }
     }
-    @Test
-    void testMillionrand(){
-        long startTime = new Date().getTime();
-        weighted_graph graph = generateGraph(1000000);
-        int i = 1;
-        int h = 1 ;
-        Random x = new Random();
-        while(i<10000000){
-            for (int j = 1; j <100 ; j++) {
-                int a = x.nextInt(1000000);
-                graph.connect(h,a,h*a);
-                if(a != h){i++;}
-
-            }
-            h++;
 
 
-        }
-
-        long endTime =  new Date().getTime();
-        double timelapsed = (endTime-startTime)/1000;
-        boolean time = false;
-        if(timelapsed < 30){ time = true;}
-        assertTrue(time);
-    }
-    @Test
-    void testMillionregualar(){//creating a graph with ten million edges without using random mathod
-        long startTime = new Date().getTime();
-        weighted_graph graph = generateGraph(1000000);
-        for (int i = 1; i < 10001 ; i++) {
-            for (int j = 1; j <101 ; j++) {
-                graph.connect(i,i+j,i*j);
-            }
-        }
-        long endTime = new Date().getTime();
-        double timelapsed = (endTime - startTime)/1000;
-        boolean time = false;
-        if(timelapsed<2){time = true;}
-        assertTrue(time);
-    }
 
 
 
